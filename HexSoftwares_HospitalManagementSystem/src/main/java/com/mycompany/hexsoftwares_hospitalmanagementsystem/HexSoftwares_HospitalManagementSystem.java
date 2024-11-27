@@ -12,6 +12,6 @@ public class HexSoftwares_HospitalManagementSystem {
 
     public static void main(String[] args) {
         System.out.println("Hello Tshabalala");
-          System.out.println("Are you okay");
+          System.out.println("Are you okay  ");
     }
 }
