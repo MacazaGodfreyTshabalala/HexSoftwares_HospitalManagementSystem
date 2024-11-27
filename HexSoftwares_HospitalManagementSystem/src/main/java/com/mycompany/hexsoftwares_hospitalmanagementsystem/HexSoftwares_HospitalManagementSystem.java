@@ -11,6 +11,7 @@ package com.mycompany.hexsoftwares_hospitalmanagementsystem;
 public class HexSoftwares_HospitalManagementSystem {
 
     public static void main(String[] args) {
-        System.out.println("Hello Macaza Thab");
+        System.out.println("Hello Tshabalala");
+          System.out.println("Are you okay");
     }
 }
