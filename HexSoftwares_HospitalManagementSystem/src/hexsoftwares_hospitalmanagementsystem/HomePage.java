@@ -3,6 +3,7 @@
 package hexsoftwares_hospitalmanagementsystem;
 
 import java.sql.Connection;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -22,7 +23,7 @@ public class HomePage extends javax.swing.JFrame {
         this.connection = connection;
     }
 
-    private HomePage() {
+    private HomePage(String exit) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -97,7 +98,7 @@ public class HomePage extends javax.swing.JFrame {
         btnExitHome.setBackground(new java.awt.Color(139, 195, 74));
         btnExitHome.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnExitHome.setForeground(new java.awt.Color(255, 255, 255));
-        btnExitHome.setText("exit");
+        btnExitHome.setText("Exit");
         btnExitHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExitHomeActionPerformed(evt);
@@ -177,7 +178,13 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnViewPatientsActionPerformed
 
     private void btnViewDrsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDrsActionPerformed
-        // TODO add your handling code here:
+         ViewDoctors  ViewDoctorsPageFrame = new ViewDoctors(connection);
+                  ViewDoctorsPageFrame.setVisible(true);
+               ViewDoctorsPageFrame.pack();
+               ViewDoctorsPageFrame.setLocationRelativeTo(null);//center
+        
+        
+        
     }//GEN-LAST:event_btnViewDrsActionPerformed
 
     private void btnBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookActionPerformed
@@ -185,7 +192,22 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBookActionPerformed
 
     private void btnExitHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitHomeActionPerformed
-        // TODO add your handling code here:
+        
+        HomePage frame = new HomePage("EXIT");
+        
+        if(JOptionPane.showConfirmDialog(frame,"Confirm if you want to exit","EXIT",JOptionPane.YES_NO_OPTION)==JOptionPane.YES_NO_OPTION)
+        {
+            
+            System.exit(0);
+            
+            
+        }
+        
+        
+        
+                
+        
+        
     }//GEN-LAST:event_btnExitHomeActionPerformed
 
     /**
@@ -217,7 +239,7 @@ public class HomePage extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-new HomePage().setVisible(true);
+new HomePage("EXIT").setVisible(true);
         });
     }
 

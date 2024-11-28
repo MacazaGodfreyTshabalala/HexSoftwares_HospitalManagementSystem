@@ -233,7 +233,7 @@ public class Patient extends javax.swing.JFrame {
                preparedStatement.execute(query);
                
                JOptionPane.showMessageDialog(new JFrame(),"Patient successfully added!!");
-                HomePage HomePageFrame = new HomePage(connection);
+                 HomePage HomePageFrame = new HomePage(connection);
                   HomePageFrame.setVisible(true);
                  HomePageFrame.pack();
                  HomePageFrame.setLocationRelativeTo(null);//center
