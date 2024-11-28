@@ -4,18 +4,28 @@
  */
 package hexsoftwares_hospitalmanagementsystem;
 
+
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import java.sql.Connection;
+import java.sql.Statement;
 
 public class Patient extends javax.swing.JFrame {
 
-     private Connection connection;
+     private final Connection connection;
    
     
-    public Patient(Connection connenction) {     
+    public Patient(Connection connection) {     
         initComponents();
         
-        this.connection = connection();
+       this.connection = connection;
+        
        
+    }
+
+    private Patient() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     /**
@@ -35,11 +45,10 @@ public class Patient extends javax.swing.JFrame {
         tfAge = new javax.swing.JTextField();
         lbEnGender = new javax.swing.JLabel();
         tfGender = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
+        btnExit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(500, 350));
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 51));
         jPanel1.setPreferredSize(new java.awt.Dimension(500, 350));
@@ -58,6 +67,11 @@ public class Patient extends javax.swing.JFrame {
                 tfNameActionPerformed(evt);
             }
         });
+        tfName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfNameKeyTyped(evt);
+            }
+        });
 
         lbEnAge.setFont(new java.awt.Font("Clarendon Blk BT", 0, 18)); // NOI18N
         lbEnAge.setForeground(new java.awt.Color(255, 255, 255));
@@ -66,6 +80,11 @@ public class Patient extends javax.swing.JFrame {
         tfAge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfAgeActionPerformed(evt);
+            }
+        });
+        tfAge.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfAgeKeyTyped(evt);
             }
         });
 
@@ -78,24 +97,29 @@ public class Patient extends javax.swing.JFrame {
                 tfGenderActionPerformed(evt);
             }
         });
-
-        jButton1.setBackground(new java.awt.Color(204, 204, 204));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Add Patient");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        tfGender.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfGenderKeyTyped(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(204, 204, 204));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Exit");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnAdd.setBackground(new java.awt.Color(204, 204, 204));
+        btnAdd.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnAdd.setForeground(new java.awt.Color(255, 255, 255));
+        btnAdd.setText("Add Patient");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnAddActionPerformed(evt);
+            }
+        });
+
+        btnExit.setBackground(new java.awt.Color(204, 204, 204));
+        btnExit.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnExit.setForeground(new java.awt.Color(255, 255, 255));
+        btnExit.setText("Exit");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
             }
         });
 
@@ -111,9 +135,9 @@ public class Patient extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton2)
+                        .addComponent(btnExit)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1))
+                        .addComponent(btnAdd))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(lbEnName)
@@ -148,8 +172,8 @@ public class Patient extends javax.swing.JFrame {
                     .addComponent(tfGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(btnAdd)
+                    .addComponent(btnExit))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
 
@@ -181,13 +205,88 @@ public class Patient extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfGenderActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        
+        
+        if("".equals(tfName.getText()))
+        {
+         JOptionPane.showMessageDialog(new JFrame(),"Please enter patient's name!!", "Error",JOptionPane.ERROR_MESSAGE);
+        }
+        else if("".equals(tfAge.getText()))
+        {
+               
+               JOptionPane.showMessageDialog(new JFrame(),"Please enter patient's age!!", "Error",JOptionPane.ERROR_MESSAGE);
+        
+        }
+        else if("".equals(tfGender.getText()))
+        {
+          JOptionPane.showMessageDialog(new JFrame(),"Please enter patient's gender!!", "Error",JOptionPane.ERROR_MESSAGE);
+        }
+        else
+        {
+            
+            try
+            {
+                
+                String query = "INSERT INTO patients(name, age, gender) VALUES"+"('"+tfName.getText()+"', '"+tfAge.getText()+"','"+tfGender.getText()+"')"  ;
+               
+               Statement preparedStatement = connection.createStatement();
+               preparedStatement.execute(query);
+               
+               JOptionPane.showMessageDialog(new JFrame(),"Patient successfully added!!");
+               
+               
+               
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+            //  preparedStatement.execute();
+// PreparedStatement preparedStatement = Connection.prepareStatement(query);
+            
+            }
+            catch(Exception e)
+             {
+                  System.out.println("Error!"+e.getMessage());
+              }
+        
+        
+        }
+        
+        
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnExitActionPerformed
+
+    private void tfAgeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfAgeKeyTyped
+        // TODO add your handling code here:
+        
+           char c = evt.getKeyChar();
+        
+        if(!Character.isDigit(c))
+        {
+            evt.consume();
+        }
+    }//GEN-LAST:event_tfAgeKeyTyped
+
+    private void tfGenderKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfGenderKeyTyped
+        
+            char c = evt.getKeyChar();
+        
+        if(Character.isDigit(c))
+        {
+            evt.consume();
+        }
+    }//GEN-LAST:event_tfGenderKeyTyped
+
+    private void tfNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNameKeyTyped
+      
+          char c = evt.getKeyChar();
+        if(Character.isDigit(c))
+        {
+            evt.consume();
+        }
+    }//GEN-LAST:event_tfNameKeyTyped
 
     /**
      * @param args the command line arguments
@@ -217,16 +316,14 @@ public class Patient extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Patient().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Patient().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnExit;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbAddHead;
     private javax.swing.JLabel lbEnAge;
