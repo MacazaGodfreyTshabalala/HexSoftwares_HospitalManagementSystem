@@ -38,10 +38,10 @@ public class HexSoftwares_HospitalManagementSystem {
         {
             Connection connection = DriverManager.getConnection(url,username,password);
             
-             Patient PatientFrame = new Patient(connection);
-                  PatientFrame.setVisible(true);
-                 PatientFrame.pack();
-                 PatientFrame.setLocationRelativeTo(null);//center
+                 HomePage HomePageFrame = new HomePage(connection);
+                  HomePageFrame.setVisible(true);
+                 HomePageFrame.pack();
+                 HomePageFrame.setLocationRelativeTo(null);//center
             
         }
         catch(Exception e)

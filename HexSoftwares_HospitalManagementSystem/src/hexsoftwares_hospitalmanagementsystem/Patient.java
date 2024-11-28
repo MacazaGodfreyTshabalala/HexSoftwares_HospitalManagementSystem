@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package hexsoftwares_hospitalmanagementsystem;
 
 
@@ -49,13 +46,14 @@ public class Patient extends javax.swing.JFrame {
         btnExit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Add Patient");
 
-        jPanel1.setBackground(new java.awt.Color(0, 153, 51));
+        jPanel1.setBackground(new java.awt.Color(56, 142, 60));
         jPanel1.setPreferredSize(new java.awt.Dimension(500, 350));
 
         lbAddHead.setBackground(new java.awt.Color(255, 255, 255));
         lbAddHead.setFont(new java.awt.Font("Clarendon Blk BT", 1, 24)); // NOI18N
-        lbAddHead.setForeground(new java.awt.Color(204, 204, 204));
+        lbAddHead.setForeground(new java.awt.Color(255, 255, 255));
         lbAddHead.setText("ADD PATIENT DETAILS");
 
         lbEnName.setFont(new java.awt.Font("Clarendon Blk BT", 0, 18)); // NOI18N
@@ -103,7 +101,7 @@ public class Patient extends javax.swing.JFrame {
             }
         });
 
-        btnAdd.setBackground(new java.awt.Color(204, 204, 204));
+        btnAdd.setBackground(new java.awt.Color(139, 195, 74));
         btnAdd.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnAdd.setForeground(new java.awt.Color(255, 255, 255));
         btnAdd.setText("Add Patient");
@@ -113,7 +111,7 @@ public class Patient extends javax.swing.JFrame {
             }
         });
 
-        btnExit.setBackground(new java.awt.Color(204, 204, 204));
+        btnExit.setBackground(new java.awt.Color(139, 195, 74));
         btnExit.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnExit.setForeground(new java.awt.Color(255, 255, 255));
         btnExit.setText("Exit");
@@ -151,7 +149,7 @@ public class Patient extends javax.swing.JFrame {
                             .addComponent(lbEnGender)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(tfGender, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,20 +159,20 @@ public class Patient extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbEnName)
-                    .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbEnAge)
-                    .addComponent(tfAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfAge, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbEnGender)
-                    .addComponent(tfGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfGender, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd)
                     .addComponent(btnExit))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -235,7 +233,10 @@ public class Patient extends javax.swing.JFrame {
                preparedStatement.execute(query);
                
                JOptionPane.showMessageDialog(new JFrame(),"Patient successfully added!!");
-               
+                HomePage HomePageFrame = new HomePage(connection);
+                  HomePageFrame.setVisible(true);
+                 HomePageFrame.pack();
+                 HomePageFrame.setLocationRelativeTo(null);//center
                
                
 
@@ -255,7 +256,10 @@ public class Patient extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        // TODO add your handling code here:
+        HomePage HomePageFrame = new HomePage(connection);
+                  HomePageFrame.setVisible(true);
+                 HomePageFrame.pack();
+                 HomePageFrame.setLocationRelativeTo(null);//center
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void tfAgeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfAgeKeyTyped
