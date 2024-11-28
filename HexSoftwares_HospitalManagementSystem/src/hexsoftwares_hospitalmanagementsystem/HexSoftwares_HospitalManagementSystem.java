@@ -42,6 +42,7 @@ public class HexSoftwares_HospitalManagementSystem {
                   HomePageFrame.setVisible(true);
                  HomePageFrame.pack();
                  HomePageFrame.setLocationRelativeTo(null);//center
+                  
             
         }
         catch(Exception e)

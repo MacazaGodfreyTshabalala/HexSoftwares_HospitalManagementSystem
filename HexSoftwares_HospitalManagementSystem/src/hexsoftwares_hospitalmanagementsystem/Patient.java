@@ -237,11 +237,11 @@ public class Patient extends javax.swing.JFrame {
                   HomePageFrame.setVisible(true);
                  HomePageFrame.pack();
                  HomePageFrame.setLocationRelativeTo(null);//center
+                   this.dispose();
                
                
 
-            //  preparedStatement.execute();
-// PreparedStatement preparedStatement = Connection.prepareStatement(query);
+ 
             
             }
             catch(Exception e)
@@ -260,6 +260,7 @@ public class Patient extends javax.swing.JFrame {
                   HomePageFrame.setVisible(true);
                  HomePageFrame.pack();
                  HomePageFrame.setLocationRelativeTo(null);//center
+                   this.dispose();
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void tfAgeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfAgeKeyTyped

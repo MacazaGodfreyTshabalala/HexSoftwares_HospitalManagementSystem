@@ -165,6 +165,7 @@ public class HomePage extends javax.swing.JFrame {
                   PatientPageFrame.setVisible(true);
                 PatientPageFrame.pack();
                 PatientPageFrame.setLocationRelativeTo(null);//center
+                  this.dispose();
         
         
     }//GEN-LAST:event_btnAddHomeActionPerformed
@@ -175,25 +176,33 @@ public class HomePage extends javax.swing.JFrame {
                   ViewPatientsPageFrame.setVisible(true);
                 ViewPatientsPageFrame.pack();
                ViewPatientsPageFrame.setLocationRelativeTo(null);//center
+                 this.dispose();
     }//GEN-LAST:event_btnViewPatientsActionPerformed
 
     private void btnViewDrsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDrsActionPerformed
-         ViewDoctors  ViewDoctorsPageFrame = new ViewDoctors(connection);
+               ViewDoctors  ViewDoctorsPageFrame = new ViewDoctors(connection);
                   ViewDoctorsPageFrame.setVisible(true);
-               ViewDoctorsPageFrame.pack();
-               ViewDoctorsPageFrame.setLocationRelativeTo(null);//center
+                 ViewDoctorsPageFrame.pack();
+                 ViewDoctorsPageFrame.setLocationRelativeTo(null);//center
+                 this.dispose();
         
         
         
     }//GEN-LAST:event_btnViewDrsActionPerformed
 
     private void btnBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookActionPerformed
-        // TODO add your handling code here:
+        BookAppointment  BookAppointmentPageFrame = new BookAppointment(connection);
+                  BookAppointmentPageFrame.setVisible(true);
+               BookAppointmentPageFrame.pack();
+               BookAppointmentPageFrame.setLocationRelativeTo(null);//cen
+                 this.dispose();
+        
+        
     }//GEN-LAST:event_btnBookActionPerformed
 
     private void btnExitHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitHomeActionPerformed
         
-        HomePage frame = new HomePage("EXIT");
+        HomePage frame = new HomePage(connection);
         
         if(JOptionPane.showConfirmDialog(frame,"Confirm if you want to exit","EXIT",JOptionPane.YES_NO_OPTION)==JOptionPane.YES_NO_OPTION)
         {

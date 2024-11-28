@@ -51,24 +51,12 @@ public class ViewPatients extends javax.swing.JFrame {
                      
                       
                  }
-                 
-                 
-  
-               
-               
-               
-             
-               
-               
-
-            //  preparedStatement.execute();
-// PreparedStatement preparedStatement = Connection.prepareStatement(query);
-            
+     
             }
             catch(Exception e)
-             {
+            {
                   System.out.println("Error!"+e.getMessage());
-              }
+            }
         
           
           
@@ -173,6 +161,7 @@ public class ViewPatients extends javax.swing.JFrame {
         HomePageFrame.setVisible(true);
         HomePageFrame.pack();
         HomePageFrame.setLocationRelativeTo(null);//center
+          this.dispose();
     }//GEN-LAST:event_btnExitListActionPerformed
 
     /**

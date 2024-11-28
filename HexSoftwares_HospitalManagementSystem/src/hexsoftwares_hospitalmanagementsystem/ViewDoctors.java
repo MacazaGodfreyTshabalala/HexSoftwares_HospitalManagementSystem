@@ -184,6 +184,7 @@ public class ViewDoctors extends javax.swing.JFrame {
         HomePageFrame.setVisible(true);
         HomePageFrame.pack();
         HomePageFrame.setLocationRelativeTo(null);//center
+          this.dispose();
     }//GEN-LAST:event_btnExitListDrActionPerformed
 
     /**
