@@ -14,22 +14,21 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Tshabalala MG
  */
-public class ViewDoctors extends javax.swing.JFrame {
-
+public class ViewAppointments extends javax.swing.JFrame {
     
-        private final Connection connection;
-   
-    public ViewDoctors(Connection connection) {
+     private final Connection connection;
+
+ 
+    public ViewAppointments(Connection connection) {
         initComponents();
         
-          this.connection = connection;
-          
-          
-             
+        this.connection = connection;
+        
+           
             try
             {
                 
-                String query = "SELECT * FROM doctors" ;
+                String query = "SELECT * FROM  appointments" ;
                
                Statement preparedStatement = connection.createStatement();
                 ResultSet resultSet =   preparedStatement.executeQuery(query);
@@ -38,32 +37,30 @@ public class ViewDoctors extends javax.swing.JFrame {
                  while(resultSet.next())
                  {
                      String id = String.valueOf(resultSet.getInt("id"));
-  
-                     String name = resultSet.getString("name");
-                     String specialization = resultSet.getString("specialization");
-               
+                     String patient_id =String.valueOf(resultSet.getInt("patient_id"));
+                     String doctor_id = String.valueOf(resultSet.getInt("doctor_id"));
+                     String appointment_date = String.valueOf(resultSet.getDate("appointment_date"));
                      
-                      String tbData []= {id,name,specialization};
+                      String tbData []= {id,patient_id,doctor_id,appointment_date};
                    
-                   DefaultTableModel tblModel = (DefaultTableModel) tbDoctors.getModel();
+                   DefaultTableModel tblModel = (DefaultTableModel) tbAppointments.getModel();
                    
                    tblModel.addRow(tbData);
                      
                       
                  }
-                 
-         
-            
+     
             }
             catch(SQLException e)
-             {
+            {
                   System.out.println("Error!"+e.getMessage());
-              }
+            }
         
-          
+        
+        
     }
 
-    private ViewDoctors() {
+    private ViewAppointments() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -76,79 +73,68 @@ public class ViewDoctors extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        lbDrsList = new javax.swing.JLabel();
-        btnExitListDr = new javax.swing.JButton();
+        lbBookApp = new javax.swing.JLabel();
+        btnExitListApp = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbDoctors = new javax.swing.JTable();
-
-        jButton1.setText("jButton1");
+        tbAppointments = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("View Doctors");
+        setTitle("View Appointments");
         setPreferredSize(new java.awt.Dimension(500, 400));
 
         jPanel1.setBackground(new java.awt.Color(56, 142, 60));
         jPanel1.setPreferredSize(new java.awt.Dimension(500, 400));
 
-        lbDrsList.setBackground(new java.awt.Color(255, 255, 255));
-        lbDrsList.setFont(new java.awt.Font("Clarendon Blk BT", 1, 24)); // NOI18N
-        lbDrsList.setForeground(new java.awt.Color(255, 255, 255));
-        lbDrsList.setText("Doctors List");
+        lbBookApp.setBackground(new java.awt.Color(255, 255, 255));
+        lbBookApp.setFont(new java.awt.Font("Clarendon Blk BT", 1, 24)); // NOI18N
+        lbBookApp.setForeground(new java.awt.Color(255, 255, 255));
+        lbBookApp.setText("Booked Appointments");
 
-        btnExitListDr.setBackground(new java.awt.Color(139, 195, 74));
-        btnExitListDr.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnExitListDr.setForeground(new java.awt.Color(255, 255, 255));
-        btnExitListDr.setText("Exit");
-        btnExitListDr.addActionListener(new java.awt.event.ActionListener() {
+        btnExitListApp.setBackground(new java.awt.Color(139, 195, 74));
+        btnExitListApp.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnExitListApp.setForeground(new java.awt.Color(255, 255, 255));
+        btnExitListApp.setText("Exit");
+        btnExitListApp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExitListDrActionPerformed(evt);
+                btnExitListAppActionPerformed(evt);
             }
         });
 
-        tbDoctors.setModel(new javax.swing.table.DefaultTableModel(
+        tbAppointments.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "id", "name", "specialization"
+                "id", "patient_id", "doctor_id", " appointment_date"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                true, true, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(tbDoctors);
+        ));
+        jScrollPane1.setViewportView(tbAppointments);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(167, 167, 167)
-                .addComponent(lbDrsList)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(105, 105, 105)
+                .addComponent(lbBookApp)
+                .addGap(0, 105, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnExitListDr, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnExitListApp, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(lbDrsList)
+                .addComponent(lbBookApp)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnExitListDr)
+                .addComponent(btnExitListApp)
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
@@ -168,13 +154,13 @@ public class ViewDoctors extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnExitListDrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitListDrActionPerformed
+    private void btnExitListAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitListAppActionPerformed
         HomePage HomePageFrame = new HomePage(connection);
         HomePageFrame.setVisible(true);
         HomePageFrame.pack();
         HomePageFrame.setLocationRelativeTo(null);//center
-          this.dispose();
-    }//GEN-LAST:event_btnExitListDrActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnExitListAppActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,28 +179,27 @@ public class ViewDoctors extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ViewDoctors.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewAppointments.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ViewDoctors.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewAppointments.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ViewDoctors.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewAppointments.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ViewDoctors.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewAppointments.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new ViewDoctors().setVisible(true);
+            new ViewAppointments().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnExitListDr;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnExitListApp;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lbDrsList;
-    private javax.swing.JTable tbDoctors;
+    private javax.swing.JLabel lbBookApp;
+    private javax.swing.JTable tbAppointments;
     // End of variables declaration//GEN-END:variables
 }

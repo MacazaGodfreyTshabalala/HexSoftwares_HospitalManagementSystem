@@ -16,9 +16,7 @@ public class ViewPatients extends javax.swing.JFrame {
     
     private final Connection connection;
 
-    /**
-     * Creates new form ViewPatients
-     */
+
     public ViewPatients(Connection connection) {
         initComponents();
         
