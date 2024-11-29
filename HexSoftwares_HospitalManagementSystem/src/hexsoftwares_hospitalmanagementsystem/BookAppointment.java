@@ -374,7 +374,14 @@ private final Connection connection;
                     
                      if(CheckDrAvailability(drID,date))
                      {
-                                      try{
+                        JOptionPane.showMessageDialog(new JFrame(),"Doctor not available on this date!!", "Error",JOptionPane.ERROR_MESSAGE);
+                    
+                     
+                     }
+                     else
+                     {
+                         
+                           try{
                           
                 
                         String query = "INSERT INTO appointments( patient_id, doctor_id, appointment_date) VALUES"+"('"+pID+"', '"+drID+"','"+date+"')"  ;
@@ -384,6 +391,11 @@ private final Connection connection;
                
                         JOptionPane.showMessageDialog(new JFrame(),"Appointment successfully booked!!");
                     
+                           HomePage HomePageFrame = new HomePage(connection);
+        HomePageFrame.setVisible(true);
+        HomePageFrame.pack();
+        HomePageFrame.setLocationRelativeTo(null);//center
+          this.dispose();
                
                
 
@@ -394,12 +406,6 @@ private final Connection connection;
              {
                   System.out.println("Error!"+e.getMessage());
               }
-                     
-                     }
-                     else
-                     {
-                          JOptionPane.showMessageDialog(new JFrame(),"Doctor not available on this date!!", "Error",JOptionPane.ERROR_MESSAGE);
-                    
                      }
                 
                 }
