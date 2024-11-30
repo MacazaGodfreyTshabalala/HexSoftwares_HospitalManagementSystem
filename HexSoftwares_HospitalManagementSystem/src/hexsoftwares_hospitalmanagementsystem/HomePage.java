@@ -14,9 +14,6 @@ public class HomePage extends javax.swing.JFrame {
 
    private final Connection connection;
 
-    /**
-     * Creates new form HomePage
-     */
     public HomePage(Connection connection) {
         initComponents();
 

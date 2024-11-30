@@ -51,15 +51,8 @@ public class HexSoftwares_HospitalManagementSystem {
            e.printStackTrace();
             
         }   
-        
-        
-        
-        
-        
-            
-              // PatientFrame.dispose();
-        
-       
+ 
+         
         // TODO code application logic here
     }
 
